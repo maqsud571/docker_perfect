@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  maqsud:
+    container_name: djangoapp
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=database
+      - DB_NAME=dbname
+      - DB_USER=dbuser
+      - DB_PASS=1234
+    depends_on:
+      - database
+
+  database:
+    container_name: database
+    image: postgres:12
+    environment:
+      - POSTGRES_DB=dbname
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgres/data
+volumes:
+  pgdata: {}
