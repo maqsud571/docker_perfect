@@ -10,3 +10,4 @@ class Login(serializers.ModelSerializer):
     class Meta: 
         model = UserModel
         fields = "__all__"
+

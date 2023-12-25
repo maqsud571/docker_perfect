@@ -7,10 +7,11 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DB_HOST=database
-      - DB_NAME=dbname
-      - DB_USER=dbuser
+      - DB_HOST=localhost
+      - DB_NAME=databasa
+      - DB_USER=maqsud571
       - DB_PASS=1234
+      - PG_PORT=5432
     depends_on:
       - database
 
@@ -18,8 +19,8 @@ services:
     container_name: database
     image: postgres:12
     environment:
-      - POSTGRES_DB=dbname
-      - POSTGRES_USER=dbuser
+      - POSTGRES_DB=databasa
+      - POSTGRES_USER=maqsud571
       - POSTGRES_PASSWORD=1234
     ports:
       - "5432:5432"
@@ -27,3 +28,5 @@ services:
       - pgdata:/var/lib/postgres/data
 volumes:
   pgdata: {}
+
+
