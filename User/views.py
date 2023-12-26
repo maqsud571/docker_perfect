@@ -55,3 +55,9 @@ class AllUser(APIView):
         serializer = UserSRL(queryset ,many=True)
         return Response(serializer.data)
 
+# 
+
+
+
+
+
